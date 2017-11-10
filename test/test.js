@@ -1,4 +1,4 @@
-const should = require('chai').should()
+require('chai').should()
 
 const be = require('./..')
 
@@ -18,6 +18,9 @@ describe('be-of-type', () => {
     be.boolean(0).should.be.false
     be.buffer(Buffer.from('fraud')).should.be.true
     be.buffer([]).should.be.false
+    be.function(console.log).should.be.true
+    be.function({}).should.be.false
+    be.function(() => {}).should.be.true
   })
   it('should not consider objects without a prototype as objects', () => {
     be.plainObject(Object.create(null)).should.be.false

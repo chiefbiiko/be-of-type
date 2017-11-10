@@ -1,33 +1,36 @@
-// TODO: typed arrays and buffers
+// TODO: typed arrays
 module.exports = Object.freeze({
-  boolean(x) {
+  boolean (x) {
     return x !== undefined && x !== null && x.__proto__ === Boolean.prototype
   },
-  buffer(x) {
+  buffer (x) {
     return Buffer.isBuffer(x)
   },
-  number(x) {
+  number (x) {
     return x !== undefined && x !== null && x.__proto__ === Number.prototype
   },
-  string(x) {
+  string (x) {
     return x !== undefined && x !== null && x.__proto__ === String.prototype
   },
-  plainObject(x) {
+  function: function (x) {
+    return x && x.__proto__ === Function.prototype
+  },
+  plainObject (x) {
     return x && x.__proto__ === Object.prototype
   },
-  array(x) {
+  array (x) {
     return Array.isArray(x)
   },
-  map(x) {
+  map (x) {
     return x && x.__proto__ === Map.prototype
   },
-  set(x) {
+  set (x) {
     return x && x.__proto__ === Set.prototype
   },
-  weakMap(x) {
+  weakMap (x) {
     return x && x.__proto__ === WeakMap.prototype
   },
-  weakSet(x) {
+  weakSet (x) {
     return x && x.__proto__ === WeakSet.prototype
   }
 })
