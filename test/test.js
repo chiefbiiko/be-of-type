@@ -16,12 +16,10 @@ describe('be-of-type', () => {
     be.plainObject({}).should.be.true
     be.array(process.argv).should.be.true
     be.boolean(0).should.be.false
+    be.buffer(Buffer.from('fraud')).should.be.true
+    be.buffer([]).should.be.false
   })
   it('should not consider objects without a prototype as objects', () => {
     be.plainObject(Object.create(null)).should.be.false
-  })
-  it('should detect buffers', () => {
-    be.buffer(Buffer.from('fraud')).should.be.true
-    be.buffer([]).should.be.false
   })
 })
