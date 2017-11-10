@@ -3,6 +3,9 @@ module.exports = Object.freeze({
   boolean(x) {
     return x !== undefined && x !== null && x.__proto__ === Boolean.prototype
   },
+  buffer(x) {
+    return Buffer.isBuffer(x)
+  },
   number(x) {
     return x !== undefined && x !== null && x.__proto__ === Number.prototype
   },
