@@ -6,7 +6,7 @@ describe('be-of-type', () => {
   it('should be an object', () => {
     be.should.be.an('object')
   })
-  it('should have a bumnch of methods', () => {
+  it('should have a bunch of methods', () => {
     Object.keys(be).map(k => be[k])
       .every(v => v.should.be.a('function'))
   })
