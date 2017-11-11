@@ -1,36 +1,39 @@
 // TODO: typed arrays
 module.exports = Object.freeze({
-  boolean (x) {
-    return x !== undefined && x !== null && x.__proto__ === Boolean.prototype
-  },
   buffer (x) {
     return Buffer.isBuffer(x)
   },
+  boolean (x) {
+    return x !== undefined && x !== null &&
+           Object.getPrototypeOf(x) === Boolean.prototype
+  },
   number (x) {
-    return x !== undefined && x !== null && x.__proto__ === Number.prototype
+    return x !== undefined && x !== null &&
+           Object.getPrototypeOf(x) === Number.prototype
   },
   string (x) {
-    return x !== undefined && x !== null && x.__proto__ === String.prototype
+    return x !== undefined && x !== null &&
+           Object.getPrototypeOf(x) === String.prototype
   },
   function: function (x) {
-    return x && x.__proto__ === Function.prototype
+    return x && Object.getPrototypeOf(x) === Function.prototype
   },
   plainObject (x) {
-    return x && x.__proto__ === Object.prototype
+    return x && Object.getPrototypeOf(x) === Object.prototype
   },
   array (x) {
     return Array.isArray(x)
   },
   map (x) {
-    return x && x.__proto__ === Map.prototype
+    return x && Object.getPrototypeOf(x) === Map.prototype
   },
   set (x) {
-    return x && x.__proto__ === Set.prototype
+    return x && Object.getPrototypeOf(x) === Set.prototype
   },
   weakMap (x) {
-    return x && x.__proto__ === WeakMap.prototype
+    return x && Object.getPrototypeOf(x) === WeakMap.prototype
   },
   weakSet (x) {
-    return x && x.__proto__ === WeakSet.prototype
+    return x && Object.getPrototypeOf(x) === WeakSet.prototype
   }
 })

@@ -4,7 +4,7 @@
   "description": "basic type assertions",
   "main": "index.js",
   "scripts": {
-    "prepublish": "./node_modules/.bin/standard --fix",
+    "style": "./node_modules/.bin/standard --fix",
     "test": "./node_modules/.bin/mocha"
   },
   "keywords": [
